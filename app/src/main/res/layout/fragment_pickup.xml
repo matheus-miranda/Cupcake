@@ -3,7 +3,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".PickupFragment">
+    tools:context=".ui.PickupFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.cupcake.model.OrderViewModel" />
+    </data>
 
     <ScrollView
         android:layout_width="match_parent"
