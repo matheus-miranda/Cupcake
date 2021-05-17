@@ -26,7 +26,7 @@ class FlavorFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val fragmentBinding = FragmentFlavorBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
@@ -36,6 +36,8 @@ class FlavorFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding?.apply {
+            // Set the lifecycle owner on the binding object to observe LiveData objects.
+            lifecycleOwner = viewLifecycleOwner
             viewModel = sharedViewModel
             nextButton.setOnClickListener { goToNextScreen() }
         }
@@ -44,7 +46,7 @@ class FlavorFragment : Fragment() {
     /**
      * Navigate to the next screen to choose pickup date.
      */
-    fun goToNextScreen() {
+    private fun goToNextScreen() {
         findNavController().navigate(R.id.action_flavorFragment_to_pickupFragment)
     }
 
